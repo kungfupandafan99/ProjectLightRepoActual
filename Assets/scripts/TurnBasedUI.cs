@@ -40,6 +40,7 @@ public class TurnBasedUI : MonoBehaviour
     {
         hideTBCUI();
         stateManager.instance.currentState = stateManager.CombatState.PlayerAttack;
+        PlayerAttacks.instance.startAttack(actionIndex);
         //Handle the selected action based on the actionIndex
     }
 }

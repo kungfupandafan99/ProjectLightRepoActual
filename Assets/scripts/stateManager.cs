@@ -15,7 +15,7 @@ public class stateManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        EnterPlayerTurn();
     }
 
     // Update is called once per frame
@@ -30,14 +30,16 @@ public class stateManager : MonoBehaviour
         Debug.Log("Player's turn");
         playerMovement.instance.canMove = false;
         playerMovement.instance.canDash = false;
-        //Show UI for player inputs
+        TurnBasedUI.Instance.showTBCUI();
+        
     }
 
     public void EnterEnemyTurn()
     {
         currentState = CombatState.EnemyTurn;
         Debug.Log("Enemy's turn");
-        //Disable player input UI
+        TurnBasedUI.Instance.hideTBCUI();
+        
     }
 
     public void EnterPrepWindow()
