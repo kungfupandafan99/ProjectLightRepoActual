@@ -1,0 +1,73 @@
+using System.Collections;
+using UnityEngine;
+
+public class stateManager : MonoBehaviour
+{
+    public static stateManager instance;
+    public enum CombatState { PlayerTurn, PlayerAttack, PrepWindow, EnemyTurn, Victory, Defeat }
+    public CombatState currentState;
+    public float prepWindowDuration = 7f;
+
+    void Awake()
+    {
+        instance = this;
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void EnterPlayerTurn()
+    {
+        currentState = CombatState.PlayerTurn;
+        Debug.Log("Player's turn");
+        playerMovement.instance.canMove = false;
+        playerMovement.instance.canDash = false;
+        //Show UI for player inputs
+    }
+
+    public void EnterEnemyTurn()
+    {
+        currentState = CombatState.EnemyTurn;
+        Debug.Log("Enemy's turn");
+        //Disable player input UI
+    }
+
+    public void EnterPrepWindow()
+    {
+        currentState = CombatState.PrepWindow;
+        Debug.Log("Preparation window");
+        playerMovement.instance.canMove = true;
+        playerMovement.instance.canDash = true;
+        StartCoroutine(PrepWindow());
+
+    }
+
+    IEnumerator PrepWindow()
+    {
+        float timer = prepWindowDuration;
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            //add UI element to show timer countdown if want
+            yield return null;
+        }
+        EnterEnemyTurn();
+    }
+
+    public void OnPlayerAttackComplete()
+    {
+        EnterPrepWindow();
+    }
+    public void OnEnemyTurnComplete()
+    {
+        EnterPlayerTurn();
+    }
+}
