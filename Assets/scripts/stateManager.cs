@@ -30,6 +30,7 @@ public class stateManager : MonoBehaviour
         Debug.Log("Player's turn");
         playerMovement.instance.canMove = false;
         playerMovement.instance.canDash = false;
+        
         TurnBasedUI.Instance.showTBCUI();
         
     }
@@ -39,7 +40,8 @@ public class stateManager : MonoBehaviour
         currentState = CombatState.EnemyTurn;
         Debug.Log("Enemy's turn");
         TurnBasedUI.Instance.hideTBCUI();
-        
+        Enemy1FirstMech attack = FindAnyObjectByType<Enemy1FirstMech>(FindObjectsInactive.Include);
+        attack.StartAttackSequence();
     }
 
     public void EnterPrepWindow()
@@ -70,6 +72,7 @@ public class stateManager : MonoBehaviour
     }
     public void OnEnemyTurnComplete()
     {
+        playerMovement.instance.rb2d.linearVelocity = Vector2.zero; // Stop player movement at the start of their turn
         EnterPlayerTurn();
     }
 }

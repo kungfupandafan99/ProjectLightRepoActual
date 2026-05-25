@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class playerMovement : MonoBehaviour
 {
     public static playerMovement instance;
-    Rigidbody2D rb2d;
+    public Rigidbody2D rb2d;
     BoxCollider2D collider2d;
     public float playerSpeed = 5f;
     public float dashSpeed = 10f;
@@ -50,7 +50,7 @@ public class playerMovement : MonoBehaviour
         Vector2 inputVector = value.Get<Vector2>();
         playerDirectionX = inputVector.x;
         playerDirectionY = inputVector.y;
-        Debug.Log("Player direction: " + playerDirectionX + ", " + playerDirectionY);
+        
     }
 
     void OnDash(InputValue value)

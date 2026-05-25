@@ -72,6 +72,7 @@ public class PlayerAttacks : MonoBehaviour
                     attackPromptUI.SetActive(false);
                     Debug.Log("Attack Successful!");
                     damageText.text = $"Damage: {currentAttack.damage}";
+                    EnemyLogic.Instance.TakeDamage(currentAttack.damage);
                     isAttacking = false;
                    
                     StartCoroutine(FinishSequence());
@@ -82,7 +83,7 @@ public class PlayerAttacks : MonoBehaviour
             else if (Input.anyKeyDown && !Input.GetKeyDown(currentAttack.inputSequence[currentInputIndex]))
             {
                 damageUI.SetActive(true);
-                attackPromptUI.SetActive(false);
+                
                 Debug.Log("Wrong Input!");
                 currentInputIndex = 0;
                 UpdateSequenceDisplay();
@@ -96,7 +97,9 @@ public class PlayerAttacks : MonoBehaviour
             Debug.Log("Attack Failed!");
             isAttacking = false;
             attackPromptUI.SetActive(false);
-            damageText.text = "Attack Failed!";
+            damageText.text = $"Attack Failed! dealt {attacks[currentAttackIndex].damage/2}";
+            EnemyLogic.Instance.TakeDamage((attacks[currentAttackIndex].damage) / 2);
+            playerHealth.Instance.TakeDamage((int)attacks[currentAttackIndex].recoilDamage);
             recoilText.text = $"Recoil Damage: {attacks[currentAttackIndex].recoilDamage}";
             StartCoroutine(FinishSequence());
         }
@@ -105,7 +108,7 @@ public class PlayerAttacks : MonoBehaviour
     IEnumerator FinishSequence()
     {
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         Debug.Log("Sequence Complete");
         damageUI.SetActive(false);
         damageText.text = "";
