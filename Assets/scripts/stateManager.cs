@@ -40,8 +40,7 @@ public class stateManager : MonoBehaviour
         currentState = CombatState.EnemyTurn;
         Debug.Log("Enemy's turn");
         TurnBasedUI.Instance.hideTBCUI();
-        Enemy1FirstMech attack = FindAnyObjectByType<Enemy1FirstMech>(FindObjectsInactive.Include);
-        attack.StartAttackSequence();
+        phase1ManagerEnemy1.instance.RunNextAttack();
     }
 
     public void EnterPrepWindow()

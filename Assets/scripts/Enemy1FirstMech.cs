@@ -29,7 +29,7 @@ public class Enemy1FirstMech : MonoBehaviour
 
             yield return new WaitForSeconds(leftAttack.telegraphDuration + leftAttack.attackDuration);
 
-            stateManager.instance.OnEnemyTurnComplete();
+            
         }
         else
         {
@@ -39,7 +39,7 @@ public class Enemy1FirstMech : MonoBehaviour
             yield return new WaitForSeconds(leftAttack.telegraphDuration + leftAttack.attackDuration + attackInterval);
             centreAttack.StartBasicAttack();
             yield return new WaitForSeconds(centreAttack.telegraphDuration + centreAttack.attackDuration);
-            stateManager.instance.OnEnemyTurnComplete();
+            
         }
 
     }

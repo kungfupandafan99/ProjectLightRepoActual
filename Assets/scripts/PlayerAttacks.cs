@@ -96,6 +96,7 @@ public class PlayerAttacks : MonoBehaviour
         {
             Debug.Log("Attack Failed!");
             isAttacking = false;
+            damageUI.SetActive(true);
             attackPromptUI.SetActive(false);
             damageText.text = $"Attack Failed! dealt {attacks[currentAttackIndex].damage/2}";
             EnemyLogic.Instance.TakeDamage((attacks[currentAttackIndex].damage) / 2);

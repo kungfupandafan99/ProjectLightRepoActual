@@ -12,7 +12,7 @@ public class EnemyBasicAttack : MonoBehaviour
 
     [Header("Visuals")]
     public SpriteRenderer telegraphEffect;
-    public BoxCollider2D damageZone;
+    public Collider2D damageZone;
 
     public Color telegraphColour = new Color(1f, 0f, 0f, 0.5f); // Semi-transparent red
     public Color damageZoneColour = new Color(1f, 0f, 0f, 0.8f); // More opaque red
