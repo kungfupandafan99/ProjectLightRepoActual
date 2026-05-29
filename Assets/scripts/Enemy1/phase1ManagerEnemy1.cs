@@ -5,6 +5,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
     public Enemy1FirstMech firstMech;
     public Enemy1SecondMech secondMech;
     public Enemy1ThirdMech thirdMech;
+    public enemy1MemoryAttackManager memoryAttackManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public static phase1ManagerEnemy1 instance;
     public float timeBetweenMechs = 0f; // Time between mechs
@@ -40,9 +41,10 @@ public class phase1ManagerEnemy1 : MonoBehaviour
         }
         else
         {
+            Debug.Log("Enemy is in phase 2, deciding attack...");
             if (phase2AttackCount % 2 == 0)
             {
-                // yield return StartCoroutine(MemoryAttack());
+                StartCoroutine(MemoryAttack());
             }
             else
             {
@@ -107,6 +109,14 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             }
             yield return new WaitForSeconds(timeBetweenMechs);
         }
+        yield return new WaitForSeconds(timeBetweenMechs);
+        stateManager.instance.OnEnemyTurnComplete();
+    }
+
+    IEnumerator MemoryAttack()
+    {
+        memoryAttackManager.StartMemoryAttackSequence();
+        yield return new WaitUntil(() => memoryAttackManager.attackComplete);
         yield return new WaitForSeconds(timeBetweenMechs);
         stateManager.instance.OnEnemyTurnComplete();
     }

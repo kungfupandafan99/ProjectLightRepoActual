@@ -14,6 +14,8 @@ public class playerHealth : MonoBehaviour
     public Slider healthSlider;
     public TextMeshProUGUI healthText;
 
+    private Animator anim;
+
     void Awake()
     {
         Instance = this;
@@ -21,6 +23,7 @@ public class playerHealth : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        anim = GetComponent<Animator>();
         currentHealth = maxHealth;
         UpdateHealthBar();
     }
@@ -29,6 +32,7 @@ public class playerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        anim.SetTrigger("beenHit");
         currentHealth -= damage;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthBar();

@@ -1,0 +1,1261 @@
+fileFormatVersion: 2
+guid: 3632a2d7c8dfb574e90b75d50b6cf8ee
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2659751633799578417
+    second: enemy1Attack3VFX4_0
+  - first:
+      213: 8678430788567532756
+    second: enemy1Attack3VFX4_1
+  - first:
+      213: -2457498022865064024
+    second: enemy1Attack3VFX4_2
+  - first:
+      213: -897706199450903400
+    second: enemy1Attack3VFX4_3
+  - first:
+      213: 4326595150907398201
+    second: enemy1Attack3VFX4_4
+  - first:
+      213: 2207065465137466017
+    second: enemy1Attack3VFX4_5
+  - first:
+      213: 6977962838113295040
+    second: enemy1Attack3VFX4_6
+  - first:
+      213: 549695837540871584
+    second: enemy1Attack3VFX4_7
+  - first:
+      213: 2643104620890929569
+    second: enemy1Attack3VFX4_8
+  - first:
+      213: -8133557863628434849
+    second: enemy1Attack3VFX4_9
+  - first:
+      213: 1453444856381664788
+    second: enemy1Attack3VFX4_10
+  - first:
+      213: -7122388309293895806
+    second: enemy1Attack3VFX4_11
+  - first:
+      213: -3642222865157603030
+    second: enemy1Attack3VFX4_12
+  - first:
+      213: -4318031635159747226
+    second: enemy1Attack3VFX4_13
+  - first:
+      213: -2089064937628612626
+    second: enemy1Attack3VFX4_14
+  - first:
+      213: 3280365650304812259
+    second: enemy1Attack3VFX4_15
+  - first:
+      213: 4161441723150858813
+    second: enemy1Attack3VFX4_16
+  - first:
+      213: 1949868848921490776
+    second: enemy1Attack3VFX4_17
+  - first:
+      213: 1144929690321105919
+    second: enemy1Attack3VFX4_18
+  - first:
+      213: -8026900820467628929
+    second: enemy1Attack3VFX4_19
+  - first:
+      213: -7801632360310805938
+    second: enemy1Attack3VFX4_20
+  - first:
+      213: 3353781848447771262
+    second: enemy1Attack3VFX4_21
+  - first:
+      213: -3195932417093270430
+    second: enemy1Attack3VFX4_22
+  - first:
+      213: 3190150585836066919
+    second: enemy1Attack3VFX4_23
+  - first:
+      213: 644277397371680061
+    second: enemy1Attack3VFX4_24
+  - first:
+      213: 4983528577086568728
+    second: enemy1Attack3VFX4_25
+  - first:
+      213: -8929971872779389534
+    second: enemy1Attack3VFX4_26
+  - first:
+      213: 3462121533428380570
+    second: enemy1Attack3VFX4_27
+  - first:
+      213: -7669596366906886364
+    second: enemy1Attack3VFX4_28
+  - first:
+      213: -3131720346430317930
+    second: enemy1Attack3VFX4_29
+  - first:
+      213: 3968262678816587751
+    second: enemy1Attack3VFX4_30
+  - first:
+      213: 4190901221794118945
+    second: enemy1Attack3VFX4_31
+  - first:
+      213: -1670899092602189110
+    second: enemy1Attack3VFX4_32
+  - first:
+      213: 399799647818258520
+    second: enemy1Attack3VFX4_33
+  - first:
+      213: 1705780729069275300
+    second: enemy1Attack3VFX4_34
+  - first:
+      213: -8717928508207506501
+    second: enemy1Attack3VFX4_35
+  - first:
+      213: -3519508262925285795
+    second: enemy1Attack3VFX4_36
+  - first:
+      213: 9196043687987578738
+    second: enemy1Attack3VFX4_37
+  - first:
+      213: -9104637531157409440
+    second: enemy1Attack3VFX4_38
+  - first:
+      213: 4714739192666725535
+    second: enemy1Attack3VFX4_39
+  - first:
+      213: -2807236012536593232
+    second: enemy1Attack3VFX4_40
+  - first:
+      213: -7269136174584207789
+    second: enemy1Attack3VFX4_41
+  - first:
+      213: -409710602667738168
+    second: enemy1Attack3VFX4_42
+  - first:
+      213: 7027609087580318564
+    second: enemy1Attack3VFX4_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_0
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 170
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcc7c942bf9a61bd0800000000000000
+      internalID: -2659751633799578417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 185
+        width: 36
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d4816862daff6870800000000000000
+      internalID: 8678430788567532756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_2
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 177
+        width: 25
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8af27ee819635edd0800000000000000
+      internalID: -2457498022865064024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_3
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 185
+        width: 36
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89c1015c7f4ba83f0800000000000000
+      internalID: -897706199450903400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_4
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 177
+        width: 25
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93853c0dd572b0c30800000000000000
+      internalID: 4326595150907398201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_5
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 170
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aa0d85d85211ae10800000000000000
+      internalID: 2207065465137466017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_6
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 125
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ca9e9dfa34b6d060800000000000000
+      internalID: 6977962838113295040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_7
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 167
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ad622ba379e0a700800000000000000
+      internalID: 549695837540871584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_8
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 149
+        width: 47
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a9b56026a13ea420800000000000000
+      internalID: 2643104620890929569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_9
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 167
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f52975a673ccf1f80800000000000000
+      internalID: -8133557863628434849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 149
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41e6f3d656cab2410800000000000000
+      internalID: 1453444856381664788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_11
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 143
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28f64289191382d90800000000000000
+      internalID: -7122388309293895806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_12
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 149
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21c979f999347dc0800000000000000
+      internalID: -3642222865157603030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_13
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 149
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66577611b154314c0800000000000000
+      internalID: -4318031635159747226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_14
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 143
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee74cefe1862203e0800000000000000
+      internalID: -2089064937628612626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_15
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 149
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e4cfc7cd23368d20800000000000000
+      internalID: 3280365650304812259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_16
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 123
+        width: 51
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3a75ede23960c930800000000000000
+      internalID: 4161441723150858813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_17
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 123
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 855b09223635f0b10800000000000000
+      internalID: 1949868848921490776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_18
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 134
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff3336cbc7b93ef00800000000000000
+      internalID: 1144929690321105919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_19
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 128
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f744cbc6b38ba9090800000000000000
+      internalID: -8026900820467628929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_20
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 123
+        width: 55
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4a6b7ff3b80bb390800000000000000
+      internalID: -7801632360310805938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_21
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 123
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e72e1e272d60b8e20800000000000000
+      internalID: 3353781848447771262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_22
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 111
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26400014664c5a3d0800000000000000
+      internalID: -3195932417093270430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_23
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 106
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76853c04e01b54c20800000000000000
+      internalID: 3190150585836066919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_24
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 117
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d35f62f11eee0f800800000000000000
+      internalID: 644277397371680061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_25
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 94
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 819b04546dc092540800000000000000
+      internalID: 4983528577086568728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_26
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 94
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a531cc05ed521480800000000000000
+      internalID: -8929971872779389534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_27
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 117
+        width: 24
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a93ba39013deb0030800000000000000
+      internalID: 3462121533428380570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_28
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 106
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42773e35dbe109590800000000000000
+      internalID: -7669596366906886364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_29
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 111
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69a582fffe4e984d0800000000000000
+      internalID: -3131720346430317930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_30
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 33
+        width: 47
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ef7d42b1e9121730800000000000000
+      internalID: 3968262678816587751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_31
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 79
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12df9c5f472192a30800000000000000
+      internalID: 4190901221794118945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_32
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 33
+        width: 47
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aca8ce9c026cfc8e0800000000000000
+      internalID: -1670899092602189110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_33
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 79
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 858988559af5c8500800000000000000
+      internalID: 399799647818258520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_34
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 42
+        width: 26
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a881e419862ca710800000000000000
+      internalID: 1705780729069275300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_35
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 62
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb5a0b1632b30780800000000000000
+      internalID: -8717928508207506501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_36
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 62
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d56494cc1e1382fc0800000000000000
+      internalID: -3519508262925285795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_37
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 42
+        width: 26
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2770971f209ee9f70800000000000000
+      internalID: 9196043687987578738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_38
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 36
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0615ca26764d5a180800000000000000
+      internalID: -9104637531157409440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_39
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 49
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c1383e05e1e6140800000000000000
+      internalID: 4714739192666725535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_40
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 49
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b4821058b1ba09d0800000000000000
+      internalID: -2807236012536593232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_41
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 36
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35667f9a927de1b90800000000000000
+      internalID: -7269136174584207789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_42
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 26
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb374ba06a605af0800000000000000
+      internalID: -409710602667738168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy1Attack3VFX4_43
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 26
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46b28853b35178160800000000000000
+      internalID: 7027609087580318564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      enemy1Attack3VFX4_0: -2659751633799578417
+      enemy1Attack3VFX4_1: 8678430788567532756
+      enemy1Attack3VFX4_10: 1453444856381664788
+      enemy1Attack3VFX4_11: -7122388309293895806
+      enemy1Attack3VFX4_12: -3642222865157603030
+      enemy1Attack3VFX4_13: -4318031635159747226
+      enemy1Attack3VFX4_14: -2089064937628612626
+      enemy1Attack3VFX4_15: 3280365650304812259
+      enemy1Attack3VFX4_16: 4161441723150858813
+      enemy1Attack3VFX4_17: 1949868848921490776
+      enemy1Attack3VFX4_18: 1144929690321105919
+      enemy1Attack3VFX4_19: -8026900820467628929
+      enemy1Attack3VFX4_2: -2457498022865064024
+      enemy1Attack3VFX4_20: -7801632360310805938
+      enemy1Attack3VFX4_21: 3353781848447771262
+      enemy1Attack3VFX4_22: -3195932417093270430
+      enemy1Attack3VFX4_23: 3190150585836066919
+      enemy1Attack3VFX4_24: 644277397371680061
+      enemy1Attack3VFX4_25: 4983528577086568728
+      enemy1Attack3VFX4_26: -8929971872779389534
+      enemy1Attack3VFX4_27: 3462121533428380570
+      enemy1Attack3VFX4_28: -7669596366906886364
+      enemy1Attack3VFX4_29: -3131720346430317930
+      enemy1Attack3VFX4_3: -897706199450903400
+      enemy1Attack3VFX4_30: 3968262678816587751
+      enemy1Attack3VFX4_31: 4190901221794118945
+      enemy1Attack3VFX4_32: -1670899092602189110
+      enemy1Attack3VFX4_33: 399799647818258520
+      enemy1Attack3VFX4_34: 1705780729069275300
+      enemy1Attack3VFX4_35: -8717928508207506501
+      enemy1Attack3VFX4_36: -3519508262925285795
+      enemy1Attack3VFX4_37: 9196043687987578738
+      enemy1Attack3VFX4_38: -9104637531157409440
+      enemy1Attack3VFX4_39: 4714739192666725535
+      enemy1Attack3VFX4_4: 4326595150907398201
+      enemy1Attack3VFX4_40: -2807236012536593232
+      enemy1Attack3VFX4_41: -7269136174584207789
+      enemy1Attack3VFX4_42: -409710602667738168
+      enemy1Attack3VFX4_43: 7027609087580318564
+      enemy1Attack3VFX4_5: 2207065465137466017
+      enemy1Attack3VFX4_6: 6977962838113295040
+      enemy1Attack3VFX4_7: 549695837540871584
+      enemy1Attack3VFX4_8: 2643104620890929569
+      enemy1Attack3VFX4_9: -8133557863628434849
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

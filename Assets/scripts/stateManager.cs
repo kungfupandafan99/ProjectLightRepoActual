@@ -31,6 +31,7 @@ public class stateManager : MonoBehaviour
         playerMovement.instance.canMove = false;
         playerMovement.instance.canDash = false;
         
+
         TurnBasedUI.Instance.showTBCUI();
         
     }

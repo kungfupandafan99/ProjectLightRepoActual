@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 7096d85d1f587284a8a12251cc581d03
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9131434551345094893
+    second: attackbasicVFX4_0
+  - first:
+      213: -7208058331084608579
+    second: attackbasicVFX4_1
+  - first:
+      213: 6260735456462517886
+    second: attackbasicVFX4_2
+  - first:
+      213: 1543793723565966492
+    second: attackbasicVFX4_3
+  - first:
+      213: 8837323693121622120
+    second: attackbasicVFX4_4
+  - first:
+      213: -8974218532616775708
+    second: attackbasicVFX4_5
+  - first:
+      213: 719866127033514939
+    second: attackbasicVFX4_6
+  - first:
+      213: 6438485271610460385
+    second: attackbasicVFX4_7
+  - first:
+      213: -2952012691430496105
+    second: attackbasicVFX4_8
+  - first:
+      213: 2870185638705280628
+    second: attackbasicVFX4_9
+  - first:
+      213: 4225108860683504141
+    second: attackbasicVFX4_10
+  - first:
+      213: -3324750370020366017
+    second: attackbasicVFX4_11
+  - first:
+      213: -2122988919313128582
+    second: attackbasicVFX4_12
+  - first:
+      213: 5262589772220849682
+    second: attackbasicVFX4_13
+  - first:
+      213: -8821673883212471477
+    second: attackbasicVFX4_14
+  - first:
+      213: -4206657317601386374
+    second: attackbasicVFX4_15
+  - first:
+      213: -5886695487716855160
+    second: attackbasicVFX4_16
+  - first:
+      213: 8272299722230391973
+    second: attackbasicVFX4_17
+  - first:
+      213: 3740270387049637590
+    second: attackbasicVFX4_18
+  - first:
+      213: -2798241594394494749
+    second: attackbasicVFX4_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: attackbasicVFX4_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 19
+        width: 43
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31fd85de7a0a64180800000000000000
+      internalID: -9131434551345094893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_1
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 180
+        width: 27
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbb28674325d7fb90800000000000000
+      internalID: -7208058331084608579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 138
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7634231ab992e650800000000000000
+      internalID: 6260735456462517886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_3
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 82
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9480a35638ac6510800000000000000
+      internalID: 1543793723565966492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_4
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 143
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86058a5a31b74aa70800000000000000
+      internalID: 8837323693121622120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_5
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 121
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e756a2cacb257380800000000000000
+      internalID: -8974218532616775708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_6
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 19
+        width: 112
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb3ba3bd6a7df900800000000000000
+      internalID: 719866127033514939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_7
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 82
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e80de1fd381a5950800000000000000
+      internalID: 6438485271610460385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_8
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 35
+        width: 38
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79827daf8185807d0800000000000000
+      internalID: -2952012691430496105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_9
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 118
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 476b47aa1a2f4d720800000000000000
+      internalID: 2870185638705280628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_10
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 51
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0a456a8f1a92aa30800000000000000
+      internalID: 4225108860683504141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_11
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 162
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f39661c572d1cd1d0800000000000000
+      internalID: -3324750370020366017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_12
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 118
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a73204273d0a982e0800000000000000
+      internalID: -2122988919313128582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_13
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 51
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21ed3d3f389780940800000000000000
+      internalID: 5262589772220849682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_14
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 121
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b43a7caa75e139580800000000000000
+      internalID: -8821673883212471477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_15
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 82
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a70629c1573fe95c0800000000000000
+      internalID: -4206657317601386374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_16
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 143
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 882fdb994a14e4ea0800000000000000
+      internalID: -5886695487716855160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_17
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 82
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a4ea13d4cc1dc270800000000000000
+      internalID: 8272299722230391973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_18
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 138
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d6a108a91c18e330800000000000000
+      internalID: 3740270387049637590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackbasicVFX4_19
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 165
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e8b46a7816aa29d0800000000000000
+      internalID: -2798241594394494749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      attackbasicVFX4_0: -9131434551345094893
+      attackbasicVFX4_1: -7208058331084608579
+      attackbasicVFX4_10: 4225108860683504141
+      attackbasicVFX4_11: -3324750370020366017
+      attackbasicVFX4_12: -2122988919313128582
+      attackbasicVFX4_13: 5262589772220849682
+      attackbasicVFX4_14: -8821673883212471477
+      attackbasicVFX4_15: -4206657317601386374
+      attackbasicVFX4_16: -5886695487716855160
+      attackbasicVFX4_17: 8272299722230391973
+      attackbasicVFX4_18: 3740270387049637590
+      attackbasicVFX4_19: -2798241594394494749
+      attackbasicVFX4_2: 6260735456462517886
+      attackbasicVFX4_3: 1543793723565966492
+      attackbasicVFX4_4: 8837323693121622120
+      attackbasicVFX4_5: -8974218532616775708
+      attackbasicVFX4_6: 719866127033514939
+      attackbasicVFX4_7: 6438485271610460385
+      attackbasicVFX4_8: -2952012691430496105
+      attackbasicVFX4_9: 2870185638705280628
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
