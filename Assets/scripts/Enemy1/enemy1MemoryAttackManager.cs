@@ -11,6 +11,7 @@ public class enemy1MemoryAttackManager : MonoBehaviour
     public float telegraphDisplayInterval = 1.5f; // Time between telegraph displays
     public float attackDisplayInterval = 0.5f;
     public bool attackComplete = false; // Flag to indicate when the attack sequence is complete
+    public bool executeOtherAttack = false;
 
 
     public void StartMemoryAttackSequence()
@@ -26,6 +27,7 @@ public class enemy1MemoryAttackManager : MonoBehaviour
         secondMemoryAttack.displayTelegraph();
         yield return new WaitForSeconds(telegraphDisplayInterval);
         thirdMemoryAttack.displayTelegraph();
+        executeOtherAttack = true;
         yield return new WaitForSeconds(memoryAttackInterval);
         firstMemoryAttack.displayAttack();
         yield return new WaitForSeconds(attackDisplayInterval);

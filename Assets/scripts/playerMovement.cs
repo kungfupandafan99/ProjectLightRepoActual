@@ -38,7 +38,7 @@ public class playerMovement : MonoBehaviour
     {
         if (!isDashing && canMove)
         {
-            Debug.Log("Player is walking");
+            
             walking();
         }
         if (canMove == false && isDashing == false)
@@ -99,14 +99,14 @@ public class playerMovement : MonoBehaviour
         float startTime = Time.time;
         while (Time.time < startTime + dashDuration)
         {
-            Debug.Log("dashed");
+            
             rb2d.linearVelocity = new Vector2(dashSpeed * playerDirectionX, dashSpeed * playerDirectionY);
             yield return null;
         }
         isDashing = false;
         
         yield return new WaitForSeconds(dashCooldown);
-        Debug.Log("Ended dash");
+        
         canDash = true;
         
 

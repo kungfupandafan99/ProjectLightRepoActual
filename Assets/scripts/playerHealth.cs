@@ -44,10 +44,9 @@ public class playerHealth : MonoBehaviour
 
     public void UpdateHealthBar()
     {
-        Debug.Log(currentHealth);
-        Debug.Log(maxHealth);
+      
         float healthSliderValue = (float) currentHealth / maxHealth;
-        Debug.Log(healthSliderValue);
+        
         healthText.text = $"{currentHealth}";
         healthSlider.value = healthSliderValue;
     }

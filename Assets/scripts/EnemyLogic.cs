@@ -11,6 +11,7 @@ public class EnemyLogic : MonoBehaviour
     public int maxHealth = 200;
     private int currentHealth;
     public bool isInPhase2 = false; // Flag to indicate if the enemy is in phase 2
+    public bool isInPhase3 = false;
 
     [Header("UI")]
     public Slider healthSlider;
@@ -41,6 +42,10 @@ public class EnemyLogic : MonoBehaviour
         {
             isInPhase2 = true;
         }
+        if(currentHealth <= (maxHealth * 0.33) && isInPhase2 == true)
+        {
+            isInPhase3 = true;
+        }
         if (currentHealth <= 0)
         {
             StartCoroutine(Die());
@@ -51,7 +56,7 @@ public class EnemyLogic : MonoBehaviour
     {
         healthSlider.value = (float)currentHealth / maxHealth;
         healthText.text = $"{currentHealth} / {maxHealth}";
-        Debug.Log($"Enemy Health: {currentHealth} / {maxHealth}");
+        
     }
 
     IEnumerator Die()
