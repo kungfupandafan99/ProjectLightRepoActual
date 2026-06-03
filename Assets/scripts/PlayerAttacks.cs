@@ -12,11 +12,13 @@ public class PlayerAttacks : MonoBehaviour
     public class Attack
     {
         public string attackName;
-        public KeyCode[] inputSequence;
+        public int sequenceLength;
         public float timeLimit;
         public int damage;
         public float recoilDamage;
     }
+    private KeyCode[] currentSequence;
+    private KeyCode[] inputs = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D };
 
     public Attack[] attacks;
 
@@ -47,6 +49,7 @@ public class PlayerAttacks : MonoBehaviour
         currentAttackIndex = attackIndex;
         currentInputIndex = 0;
         timer = attacks[currentAttackIndex].timeLimit;
+        currentSequence = GenerateSequence(attacks[currentAttackIndex].sequenceLength);
         attackPromptUI.SetActive(true);
         isAttacking = true;
         UpdateSequenceDisplay();
@@ -61,11 +64,11 @@ public class PlayerAttacks : MonoBehaviour
             timerText.text = Mathf.CeilToInt(timer).ToString();
 
             Attack currentAttack = attacks[currentAttackIndex];
-            if (Input.GetKeyDown(currentAttack.inputSequence[currentInputIndex]))
+            if (Input.GetKeyDown(currentSequence[currentInputIndex]))
             {
                 currentInputIndex++;
                 UpdateSequenceDisplay();
-                if (currentInputIndex >= currentAttack.inputSequence.Length)
+                if (currentInputIndex >= currentSequence.Length)
                 {
                     // Attack successful
                     damageUI.SetActive(true);
@@ -74,16 +77,16 @@ public class PlayerAttacks : MonoBehaviour
                     damageText.text = $"Damage: {currentAttack.damage}";
                     EnemyLogic.Instance.TakeDamage(currentAttack.damage);
                     isAttacking = false;
-                   
+
                     StartCoroutine(FinishSequence());
                     yield break;
                 }
 
             }
-            else if (Input.anyKeyDown && !Input.GetKeyDown(currentAttack.inputSequence[currentInputIndex]))
+            else if (Input.anyKeyDown && !Input.GetKeyDown(currentSequence[currentInputIndex]))
             {
                 damageUI.SetActive(true);
-                
+
                 Debug.Log("Wrong Input!");
                 currentInputIndex = 0;
                 UpdateSequenceDisplay();
@@ -98,7 +101,7 @@ public class PlayerAttacks : MonoBehaviour
             isAttacking = false;
             damageUI.SetActive(true);
             attackPromptUI.SetActive(false);
-            damageText.text = $"Attack Failed! dealt {attacks[currentAttackIndex].damage/2}";
+            damageText.text = $"Attack Failed! dealt {attacks[currentAttackIndex].damage / 2}";
             EnemyLogic.Instance.TakeDamage((attacks[currentAttackIndex].damage) / 2);
             playerHealth.Instance.TakeDamage((int)attacks[currentAttackIndex].recoilDamage);
             recoilText.text = $"Recoil Damage: {attacks[currentAttackIndex].recoilDamage}";
@@ -121,10 +124,20 @@ public class PlayerAttacks : MonoBehaviour
     {
         Attack currentAttack = attacks[currentAttackIndex];
         string display = "";
-        for (int i = currentInputIndex; i < currentAttack.inputSequence.Length; i++)
+        for (int i = currentInputIndex; i < currentSequence.Length; i++)
         {
-            display += currentAttack.inputSequence[i].ToString() + " ";
+            display += currentSequence[i].ToString() + " ";
         }
         SequenceText.text = display;
+    }
+
+    KeyCode[] GenerateSequence(int length)
+    {
+        KeyCode[] sequence = new KeyCode[length];
+        for (int i = 0; i < length; i++)
+        {
+            sequence[i] = inputs[Random.Range(0, inputs.Length)];
+        }
+        return sequence;
     }
 }

@@ -8,6 +8,7 @@ public class playerHealth : MonoBehaviour
     public static playerHealth Instance;
     [Header("Stats")]
     public int maxHealth = 100;
+    public int healingCharges = 10;
     private int currentHealth;
 
     [Header("UI")]
@@ -44,9 +45,9 @@ public class playerHealth : MonoBehaviour
 
     public void UpdateHealthBar()
     {
-      
-        float healthSliderValue = (float) currentHealth / maxHealth;
-        
+
+        float healthSliderValue = (float)currentHealth / maxHealth;
+
         healthText.text = $"{currentHealth}";
         healthSlider.value = healthSliderValue;
     }
@@ -59,5 +60,20 @@ public class playerHealth : MonoBehaviour
         stateManager.instance.currentState = stateManager.CombatState.Defeat;
     }
 
+    public void HealPlayer()
+    {
+        if (healingCharges > 0)
+        {
+            healingCharges--;
+            currentHealth += 20; // Heal amount can be adjusted
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            UpdateHealthBar();
+        }
+        else
+        {
+            Debug.Log("No healing charges left!");
+        }
+        
+    }
 
 }
