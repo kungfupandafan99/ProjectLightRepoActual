@@ -16,6 +16,7 @@ public class enemy1MemoryAttackManager : MonoBehaviour
 
     public void StartMemoryAttackSequence()
     {
+        executeOtherAttack = false;
         attackComplete = false;
         StartCoroutine(MemoryAttackSequence());
     }

@@ -671,8 +671,8 @@ Transform:
   m_GameObject: {fileID: 157137847}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.97253925, w: 0.23273884}
-  m_LocalPosition: {x: -2.800002, y: 12.7, z: 0}
-  m_LocalScale: {x: 367.42615, y: 81.295334, z: 32.209892}
+  m_LocalPosition: {x: -2.8, y: 12.7, z: 0}
+  m_LocalScale: {x: 299.22818, y: 26.264128, z: 26.231415}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 945476347}
@@ -690,7 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 0.6
-  attackDuration: 0.8
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 157137851}
   damageZone: {fileID: 157137850}
@@ -946,7 +946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyLogic
   maxHealth: 300
   isInPhase2: 1
-  isInPhase3: 0
+  isInPhase3: 1
   healthSlider: {fileID: 2054431356}
   healthText: {fileID: 627389216}
   animator: {fileID: 224251532}
@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 1
-  attackDuration: 1
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 288964018}
   damageZone: {fileID: 288964017}
@@ -1442,7 +1442,7 @@ MonoBehaviour:
   timeBetweenMechs: 1
   mechCompletion: 1.4
   memoryTime: 5
-  phase2AttackCount: 4
+  phase2AttackCount: 6
   phase3AttackCount: 0
   memoryAttackManagers:
   - {fileID: 599522955}
@@ -1569,8 +1569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7cdeb52c2387942baef759802dcd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
-  telegraphDuration: 0.1
-  attackDuration: 0.5
+  telegraphDuration: 0.4
+  attackDuration: 0.7
   damageAmount: 10
   telegraphEffect: {fileID: 372263996}
   damageZone: {fileID: 372263995}
@@ -1815,7 +1815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 0.6
-  attackDuration: 0.8
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 390625037}
   damageZone: {fileID: 390625035}
@@ -2191,7 +2191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 1
-  attackDuration: 1
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 443610984}
   damageZone: {fileID: 443610983}
@@ -2439,7 +2439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 0.6
-  attackDuration: 0.8
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 495170684}
   damageZone: {fileID: 495170683}
@@ -3403,7 +3403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 1
-  attackDuration: 1
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 607845873}
   damageZone: {fileID: 607845871}
@@ -3887,8 +3887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7cdeb52c2387942baef759802dcd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
-  telegraphDuration: 0.1
-  attackDuration: 0.5
+  telegraphDuration: 0.4
+  attackDuration: 0.7
   damageAmount: 10
   telegraphEffect: {fileID: 709772980}
   damageZone: {fileID: 709772979}
@@ -4135,7 +4135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 0.6
-  attackDuration: 0.8
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 758582706}
   damageZone: {fileID: 758582705}
@@ -4293,7 +4293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 0.6
-  attackDuration: 0.8
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 767612624}
   damageZone: {fileID: 767612623}
@@ -4538,7 +4538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 0.6
-  attackDuration: 0.8
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 775885592}
   damageZone: {fileID: 775885590}
@@ -4772,7 +4772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 1
-  attackDuration: 1
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 844489611}
   damageZone: {fileID: 844489610}
@@ -4944,8 +4944,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7cdeb52c2387942baef759802dcd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
-  telegraphDuration: 0.1
-  attackDuration: 0.5
+  telegraphDuration: 0.4
+  attackDuration: 0.7
   damageAmount: 10
   telegraphEffect: {fileID: 896632825}
   damageZone: {fileID: 896632824}
@@ -5103,7 +5103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 0.6
-  attackDuration: 0.8
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 920548061}
   damageZone: {fileID: 920548060}
@@ -5356,7 +5356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 1
-  attackDuration: 1
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 930571890}
   damageZone: {fileID: 930571889}
@@ -5493,8 +5493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7cdeb52c2387942baef759802dcd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
-  telegraphDuration: 0.1
-  attackDuration: 0.5
+  telegraphDuration: 0.4
+  attackDuration: 0.7
   damageAmount: 10
   telegraphEffect: {fileID: 977146951}
   damageZone: {fileID: 977146950}
@@ -6015,8 +6015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7cdeb52c2387942baef759802dcd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
-  telegraphDuration: 0.1
-  attackDuration: 0.5
+  telegraphDuration: 0.4
+  attackDuration: 0.7
   damageAmount: 10
   telegraphEffect: {fileID: 1049930032}
   damageZone: {fileID: 1049930031}
@@ -6284,8 +6284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7cdeb52c2387942baef759802dcd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
-  telegraphDuration: 0.1
-  attackDuration: 0.5
+  telegraphDuration: 0.4
+  attackDuration: 0.7
   damageAmount: 10
   telegraphEffect: {fileID: 1133447066}
   damageZone: {fileID: 1133447065}
@@ -6671,7 +6671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 1
-  attackDuration: 1
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 1165692231}
   damageZone: {fileID: 1165692230}
@@ -7057,7 +7057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 0.6
-  attackDuration: 0.8
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 1211862589}
   damageZone: {fileID: 1211862588}
@@ -7351,8 +7351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7cdeb52c2387942baef759802dcd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
-  telegraphDuration: 0.1
-  attackDuration: 0.5
+  telegraphDuration: 0.4
+  attackDuration: 0.7
   damageAmount: 10
   telegraphEffect: {fileID: 1224034589}
   damageZone: {fileID: 1224034588}
@@ -7788,7 +7788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 1
-  attackDuration: 1
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 1318018705}
   damageZone: {fileID: 1318018704}
@@ -8083,7 +8083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 1
-  attackDuration: 1
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 1379624162}
   damageZone: {fileID: 1379624161}
@@ -8255,8 +8255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7cdeb52c2387942baef759802dcd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
-  telegraphDuration: 0.1
-  attackDuration: 0.5
+  telegraphDuration: 0.4
+  attackDuration: 0.7
   damageAmount: 10
   telegraphEffect: {fileID: 1481181958}
   damageZone: {fileID: 1481181957}
@@ -9188,7 +9188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 1
-  attackDuration: 1
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 1696192529}
   damageZone: {fileID: 1696192527}
@@ -9300,7 +9300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 0.6
-  attackDuration: 0.8
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 1700015576}
   damageZone: {fileID: 1700015575}
@@ -9699,8 +9699,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7cdeb52c2387942baef759802dcd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
-  telegraphDuration: 0.1
-  attackDuration: 0.5
+  telegraphDuration: 0.4
+  attackDuration: 0.7
   damageAmount: 10
   telegraphEffect: {fileID: 1770508062}
   damageZone: {fileID: 1770508061}
@@ -9858,7 +9858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 0.6
-  attackDuration: 0.8
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 1795621517}
   damageZone: {fileID: 1795621516}
@@ -10015,8 +10015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7cdeb52c2387942baef759802dcd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
-  telegraphDuration: 0.1
-  attackDuration: 0.5
+  telegraphDuration: 0.4
+  attackDuration: 0.7
   damageAmount: 10
   telegraphEffect: {fileID: 1834101809}
   damageZone: {fileID: 1834101808}
@@ -10350,7 +10350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 0.6
-  attackDuration: 0.8
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 1923140568}
   damageZone: {fileID: 1923140567}
@@ -10878,8 +10878,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7cdeb52c2387942baef759802dcd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
-  telegraphDuration: 0.6
-  attackDuration: 0.8
+  telegraphDuration: 0.4
+  attackDuration: 0.7
   damageAmount: 10
   telegraphEffect: {fileID: 2031610935}
   damageZone: {fileID: 2031610934}
@@ -11347,7 +11347,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.27118203, w: 0.9625281}
   m_LocalPosition: {x: -2.8, y: 12.7, z: 0}
-  m_LocalScale: {x: 367.42615, y: 81.295334, z: 32.209892}
+  m_LocalScale: {x: 299.22818, y: 33.05075, z: 26.231415}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 945476347}
@@ -11365,7 +11365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicAttack
   telegraphDuration: 0.6
-  attackDuration: 0.8
+  attackDuration: 0.5
   damageAmount: 10
   telegraphEffect: {fileID: 2111258407}
   damageZone: {fileID: 2111258406}

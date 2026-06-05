@@ -19,9 +19,10 @@ public class phase1ManagerEnemy1 : MonoBehaviour
     public int phase2AttackCount = 0; // Counter for the number of attacks in phase 2
     public int phase3AttackCount = 0;
     private int memoryAttackCount = 0;
-    private bool isLayeringMemoryAttacks = false; // Flag to indicate if layered memory attacks are currently active
+    private bool isLayeringAttacks = false; // Flag to indicate if layered memory attacks are currently active
     public enemy1MemoryAttackManager[] memoryAttackManagers; // Array to hold the memory attack managers for phase 2
     public EnemyBasicAttack[] finalAttacks; // Array to hold all basic attacks for potential use in phase 3
+    private bool memoryAttacking = false;
     private void Awake()
     {
         instance = this;
@@ -53,11 +54,11 @@ public class phase1ManagerEnemy1 : MonoBehaviour
                 if (phase2AttackCount >= 6)
                 {
 
-                    StartCoroutine(LayeredMemoryAttacks());
+                    yield return StartCoroutine(LayeredMemoryAttacks());
                 }
                 else
                 {
-                    StartCoroutine(MemoryAttack());
+                    yield return StartCoroutine(MemoryAttack());
                 }
                 phase2AttackCount++;
 
@@ -66,7 +67,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             {
                 if (phase2AttackCount >= 6)
                 {
-                    isLayeringMemoryAttacks = true;
+                    isLayeringAttacks = true;
                     StartCoroutine(MemoryAttack());
                     yield return StartCoroutine(LayerAttacks());
                 }
@@ -81,10 +82,31 @@ public class phase1ManagerEnemy1 : MonoBehaviour
         }
         else if (EnemyLogic.Instance.isInPhase3 == true)
         {
-            
-           StartCoroutine(FinalAttackSequence());
-            
+            if (phase3AttackCount % 3 == 0)
+            {
+
+                yield return StartCoroutine(FinalAttackSequence());
+            }
+            else if (phase3AttackCount % 3 == 1)
+            {
+                
+
+                yield return StartCoroutine(LayeredMemoryAttacks());
+            }
+            else
+            {
+                isLayeringAttacks = true;
+
+                StartCoroutine(LayerAttacks());
+                StartCoroutine(LayeredMemoryAttacks());
+                yield return new WaitForSeconds(3f); // Wait a bit to allow the attacks to start before layering them
+                yield return StartCoroutine(LayerAttacks());
+                yield return new WaitUntil(() => memoryAttacking == false); // Wait until the layered memory attacks are done before proceeding
+                isLayeringAttacks = false; // Reset the flag after the layered attacks are done
+            }
+            phase3AttackCount++;
         }
+        stateManager.instance.OnEnemyTurnComplete();
 
     }
 
@@ -108,7 +130,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             isTeaching = false; // After the third mech, start layering attacks
         }
         currentMech++;
-        stateManager.instance.OnEnemyTurnComplete();
+        
 
     }
 
@@ -125,6 +147,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
 
         foreach (int value in order)
         {
+            
             if (value == 0)
             {
                 firstMech.StartAttackSequence();
@@ -143,11 +166,8 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenMechs);
         }
         yield return new WaitForSeconds(timeBetweenMechs);
-        if (!isLayeringMemoryAttacks)
-        {
-            stateManager.instance.OnEnemyTurnComplete();
-        }
-        isLayeringMemoryAttacks = false;
+        
+       
 
     }
 
@@ -158,7 +178,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             memoryAttackManager1.StartMemoryAttackSequence();
             yield return new WaitUntil(() => memoryAttackManager1.attackComplete);
             yield return new WaitForSeconds(timeBetweenMechs);
-            stateManager.instance.OnEnemyTurnComplete();
+            
             memoryAttackCount++;
         }
         else if (memoryAttackCount == 1)
@@ -166,7 +186,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             memoryAttackManager2.StartMemoryAttackSequence();
             yield return new WaitUntil(() => memoryAttackManager2.attackComplete);
             yield return new WaitForSeconds(timeBetweenMechs);
-            stateManager.instance.OnEnemyTurnComplete();
+            
             memoryAttackCount++;
         }
         else if (memoryAttackCount == 2)
@@ -174,7 +194,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             memoryAttackManager3.StartMemoryAttackSequence();
             yield return new WaitUntil(() => memoryAttackManager3.attackComplete);
             yield return new WaitForSeconds(timeBetweenMechs);
-            stateManager.instance.OnEnemyTurnComplete();
+            
             memoryAttackCount = 0;
         }
 
@@ -183,28 +203,60 @@ public class phase1ManagerEnemy1 : MonoBehaviour
 
     IEnumerator LayeredMemoryAttacks()
     {
-        int i = Random.Range(0, memoryAttackManagers.Length);
-        int j;
-        do
+        memoryAttacking = true;
+        if ((EnemyLogic.Instance.isInPhase2 == true && EnemyLogic.Instance.isInPhase3 == false) || (isLayeringAttacks == true && EnemyLogic.Instance.isInPhase3 == true))
         {
-            j = Random.Range(0, memoryAttackManagers.Length);
-        } while (j == i);
-        Debug.Log($"Starting layered memory attacks with managers {i} and {j}");
-        memoryAttackManagers[j].memoryAttackInterval -= 1f;
-        memoryAttackManagers[i].memoryAttackInterval += 1f;
-        memoryAttackManagers[i].StartMemoryAttackSequence();
-        yield return new WaitUntil(() => memoryAttackManagers[i].executeOtherAttack);
-        yield return new WaitForSeconds(1f);
-        //Reduce memoryAttackInterval i by how much u wait here so that the transition to the next attack is smoother 
+            int i = Random.Range(0, memoryAttackManagers.Length);
+            int j;
+            do
+            {
+                j = Random.Range(0, memoryAttackManagers.Length);
+            } while (j == i);
+
+            Debug.Log($"Starting layered memory attacks with managers {i} and {j}");
+            memoryAttackManagers[j].memoryAttackInterval -= 1f;
+            memoryAttackManagers[i].memoryAttackInterval += 1f;
+            memoryAttackManagers[i].StartMemoryAttackSequence();
+            yield return new WaitUntil(() => memoryAttackManagers[i].executeOtherAttack);
+            yield return new WaitForSeconds(1f);
+            //Reduce memoryAttackInterval i by how much u wait here so that the transition to the next attack is smoother 
 
 
-        Debug.Log("First memory attack sequence has reached the point to execute the other attack, starting second memory attack sequence...");
-        memoryAttackManagers[j].StartMemoryAttackSequence();
-        yield return new WaitUntil(() => memoryAttackManagers[j].attackComplete);
-        yield return new WaitForSeconds(timeBetweenMechs);
-        memoryAttackManagers[j].memoryAttackInterval += 1f;
-        memoryAttackManagers[i].memoryAttackInterval -= 1f;
-        stateManager.instance.OnEnemyTurnComplete();
+            Debug.Log("First memory attack sequence has reached the point to execute the other attack, starting second memory attack sequence...");
+            memoryAttackManagers[j].StartMemoryAttackSequence();
+            yield return new WaitUntil(() => memoryAttackManagers[j].attackComplete);
+            yield return new WaitForSeconds(timeBetweenMechs);
+            memoryAttackManagers[j].memoryAttackInterval += 1f;
+            memoryAttackManagers[i].memoryAttackInterval -= 1f;
+        }
+        else if (EnemyLogic.Instance.isInPhase3 == true && isLayeringAttacks == false)
+
+        {
+            int i = Random.Range(0, memoryAttackManagers.Length);
+            int j;
+            int k;
+            do
+            {
+                k = Random.Range(0, memoryAttackManagers.Length);
+                j = Random.Range(0, memoryAttackManagers.Length);
+            } while (j == i || j == k || k == i);
+
+            memoryAttackManagers[j].memoryAttackInterval += 2.2f;
+            memoryAttackManagers[i].memoryAttackInterval += 4.1f;
+            memoryAttackManagers[i].StartMemoryAttackSequence();
+            yield return new WaitUntil(() => memoryAttackManagers[i].executeOtherAttack);
+            yield return new WaitForSeconds(1f);
+            memoryAttackManagers[j].StartMemoryAttackSequence();
+            yield return new WaitUntil(() => memoryAttackManagers[j].executeOtherAttack);
+            yield return new WaitForSeconds(1f);
+            memoryAttackManagers[k].StartMemoryAttackSequence();
+            yield return new WaitUntil(() => memoryAttackManagers[k].attackComplete);
+            yield return new WaitForSeconds(timeBetweenMechs);
+
+            memoryAttackManagers[j].memoryAttackInterval -= 2.2f;
+            memoryAttackManagers[i].memoryAttackInterval -= 4.1f;
+        }
+        memoryAttacking = false;
     }
 
     IEnumerator FinalAttackSequence()
@@ -215,7 +267,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             yield return new WaitForSeconds((attack.telegraphDuration + attack.attackDuration) * 0.8f);
         }
         yield return new WaitForSeconds(timeBetweenMechs);
-        stateManager.instance.OnEnemyTurnComplete();
+        
     }
 
 }

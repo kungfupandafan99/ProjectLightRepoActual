@@ -17,6 +17,7 @@ public class EnemyBasicAttack : MonoBehaviour
     public Color telegraphColour = new Color(1f, 0f, 0f, 0.5f); // Semi-transparent red
     public Color damageZoneColour = new Color(1f, 0f, 0f, 0.8f); // More opaque red
 
+    
 
     void Start()
     {
@@ -32,6 +33,12 @@ public class EnemyBasicAttack : MonoBehaviour
 
     public IEnumerator BasicAttackSequence()
     {
+        if (EnemyLogic.Instance.isInPhase3)
+        {
+            telegraphDuration -= 0.005f; // Reduce telegraph duration by 0.5 seconds in phase 3
+            attackDuration -= 0.005f; // Reduce attack duration by 0.5 seconds in phase 3
+            
+        }
         // Show telegraph effect
         Debug.Log("Telegraph colour: " + telegraphColour);
         telegraphEffect.color = telegraphColour;
