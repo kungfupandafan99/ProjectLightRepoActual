@@ -7,11 +7,14 @@ public class enemy1MemoryAttackManager : MonoBehaviour
     public EnemyMemoryAttack firstMemoryAttack;
     public EnemyMemoryAttack secondMemoryAttack;
     public EnemyMemoryAttack thirdMemoryAttack;
-    public float memoryAttackInterval = 10f; // Time to wait for player to memorise the attack before it is displayed
+    public float memoryAttackInterval = 12f; // Beats to wait for player to memorise the attack before it is displayed
     public float telegraphDisplayInterval = 1.5f; // Time between telegraph displays
     public float attackDisplayInterval = 0.5f;
     public bool attackComplete = false; // Flag to indicate when the attack sequence is complete
     public bool executeOtherAttack = false;
+    public int beatCounter = 0;
+    public int beatsToWait = 4;
+    
 
 
     public void StartMemoryAttackSequence()
@@ -23,19 +26,79 @@ public class enemy1MemoryAttackManager : MonoBehaviour
 
     IEnumerator MemoryAttackSequence()
     {
+        audioSyncManager.instance.OnBeat += beatIncrementor;
+        while (beatCounter < beatsToWait)
+        {
+            yield return null;
+        }
+        beatCounter = 0;
         firstMemoryAttack.displayTelegraph();
-        yield return new WaitForSeconds(telegraphDisplayInterval);
+        while (beatCounter < beatsToWait)
+        {
+            yield return null;
+        }
+        beatCounter = 0;
+        
         secondMemoryAttack.displayTelegraph();
-        yield return new WaitForSeconds(telegraphDisplayInterval);
+        while (beatCounter < beatsToWait)
+        {
+            yield return null;
+        }
+        beatCounter = 0;
         thirdMemoryAttack.displayTelegraph();
         executeOtherAttack = true;
-        yield return new WaitForSeconds(memoryAttackInterval);
+        while (beatCounter < beatsToWait)
+        {
+            yield return null;
+        }
+        
+        beatCounter = 0;
+        while (beatCounter < memoryAttackInterval)
+        {
+            yield return null;
+        }
+        
+        while (beatCounter < beatsToWait)
+        {
+            yield return null;
+        }
+        beatCounter = 0;
         firstMemoryAttack.displayAttack();
-        yield return new WaitForSeconds(attackDisplayInterval);
+        while (beatCounter < beatsToWait)
+        {
+            yield return null;
+        }
+        beatCounter = 0;
         secondMemoryAttack.displayAttack();
-        yield return new WaitForSeconds(attackDisplayInterval);
+        while (beatCounter < beatsToWait)
+        {
+            yield return null;
+        }
+        beatCounter = 0;
         thirdMemoryAttack.displayAttack();
-        yield return new WaitForSeconds(attackDisplayInterval);
+        while (beatCounter < beatsToWait)
+        {
+            yield return null;
+        }
+        audioSyncManager.instance.OnBeat -= beatIncrementor;
+        beatCounter = 0;
         attackComplete = true;
     }
+
+    public int GetBeatMemoryDuration()
+    {
+        return beatsToWait;
+    }
+
+    public void SetBeatMemoryDuration(int beats)
+    {
+        beatsToWait = beats;
+    }
+
+    void beatIncrementor()
+    {
+        beatCounter++;
+    }
+
+
 }

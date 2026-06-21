@@ -6,10 +6,12 @@ public class Enemy1SecondMech : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public EnemyBasicAttack HoriAttack;
     public EnemyBasicAttack VertAttack;
+    public bool mechComplete = false;
     public float attackEndingInterval = 1f; // Time after attacks end before player turn starts
 
     public void StartAttackSequence()
     {
+        mechComplete = false;
         StartCoroutine(AttackSequence());
     }
 
@@ -18,6 +20,7 @@ public class Enemy1SecondMech : MonoBehaviour
         HoriAttack.StartBasicAttack();
         VertAttack.StartBasicAttack();
         yield return new WaitForSeconds(HoriAttack.telegraphDuration + HoriAttack.attackDuration + attackEndingInterval);
-        
+        mechComplete = true;
+
     }
 }

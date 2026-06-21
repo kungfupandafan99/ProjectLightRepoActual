@@ -622,6 +622,8 @@ MonoBehaviour:
     timeLimit: 5
     damage: 50
     recoilDamage: 25
+  beatsToWait: 8
+  beatCounterValue: 0
   attackPromptUI: {fileID: 2048473883}
   damageUI: {fileID: 995394688}
   SequenceText: {fileID: 1646803620}
@@ -692,6 +694,7 @@ MonoBehaviour:
   telegraphDuration: 0.6
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 157137851}
   damageZone: {fileID: 157137850}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -946,7 +949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyLogic
   maxHealth: 300
   isInPhase2: 1
-  isInPhase3: 1
+  isInPhase3: 0
   healthSlider: {fileID: 2054431356}
   healthText: {fileID: 627389216}
   animator: {fileID: 224251532}
@@ -1238,6 +1241,7 @@ MonoBehaviour:
   rightAttack: {fileID: 844489609}
   attackInterval: 0
   sidesFirstMech: 1
+  mechComplete: 0
 --- !u!4 &243023392
 Transform:
   m_ObjectHideFlags: 0
@@ -1290,6 +1294,7 @@ MonoBehaviour:
   telegraphDuration: 1
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 288964018}
   damageZone: {fileID: 288964017}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -1441,8 +1446,9 @@ MonoBehaviour:
   memoryAttackManager3: {fileID: 1876339847}
   timeBetweenMechs: 1
   mechCompletion: 1.4
+  beatCounter: 0
   memoryTime: 5
-  phase2AttackCount: 6
+  phase2AttackCount: 0
   phase3AttackCount: 0
   memoryAttackManagers:
   - {fileID: 599522955}
@@ -1572,6 +1578,7 @@ MonoBehaviour:
   telegraphDuration: 0.4
   attackDuration: 0.7
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 372263996}
   damageZone: {fileID: 372263995}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -1817,6 +1824,7 @@ MonoBehaviour:
   telegraphDuration: 0.6
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 390625037}
   damageZone: {fileID: 390625035}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -2193,6 +2201,7 @@ MonoBehaviour:
   telegraphDuration: 1
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 443610984}
   damageZone: {fileID: 443610983}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -2441,6 +2450,7 @@ MonoBehaviour:
   telegraphDuration: 0.6
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 495170684}
   damageZone: {fileID: 495170683}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -3144,11 +3154,13 @@ MonoBehaviour:
   firstMemoryAttack: {fileID: 87512726}
   secondMemoryAttack: {fileID: 603558899}
   thirdMemoryAttack: {fileID: 120323115}
-  memoryAttackInterval: 5
+  memoryAttackInterval: 12
   telegraphDisplayInterval: 1.5
   attackDisplayInterval: 0.5
   attackComplete: 0
   executeOtherAttack: 0
+  beatCounter: 0
+  beatsToWait: 4
 --- !u!4 &599522956
 Transform:
   m_ObjectHideFlags: 0
@@ -3405,6 +3417,7 @@ MonoBehaviour:
   telegraphDuration: 1
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 607845873}
   damageZone: {fileID: 607845871}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -3890,6 +3903,7 @@ MonoBehaviour:
   telegraphDuration: 0.4
   attackDuration: 0.7
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 709772980}
   damageZone: {fileID: 709772979}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -4137,6 +4151,7 @@ MonoBehaviour:
   telegraphDuration: 0.6
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 758582706}
   damageZone: {fileID: 758582705}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -4295,6 +4310,7 @@ MonoBehaviour:
   telegraphDuration: 0.6
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 767612624}
   damageZone: {fileID: 767612623}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -4404,6 +4420,150 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &773024490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 773024493}
+  - component: {fileID: 773024492}
+  - component: {fileID: 773024491}
+  m_Layer: 0
+  m_Name: audioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &773024491
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773024490}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 1f5a0927f0166814c908684f77394597, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.659
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &773024492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773024490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3399a3830f4ed0f44bdf9847f2f5c803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::audioSyncManager
+  bpm: 140
+  music: {fileID: 773024491}
+--- !u!4 &773024493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773024490}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 106.69736, y: 127.83008, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &775885588
 GameObject:
   m_ObjectHideFlags: 0
@@ -4540,6 +4700,7 @@ MonoBehaviour:
   telegraphDuration: 0.6
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 775885592}
   damageZone: {fileID: 775885590}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -4774,6 +4935,7 @@ MonoBehaviour:
   telegraphDuration: 1
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 844489611}
   damageZone: {fileID: 844489610}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -4947,6 +5109,7 @@ MonoBehaviour:
   telegraphDuration: 0.4
   attackDuration: 0.7
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 896632825}
   damageZone: {fileID: 896632824}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -5105,6 +5268,7 @@ MonoBehaviour:
   telegraphDuration: 0.6
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 920548061}
   damageZone: {fileID: 920548060}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -5358,6 +5522,7 @@ MonoBehaviour:
   telegraphDuration: 1
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 930571890}
   damageZone: {fileID: 930571889}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -5496,6 +5661,7 @@ MonoBehaviour:
   telegraphDuration: 0.4
   attackDuration: 0.7
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 977146951}
   damageZone: {fileID: 977146950}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -5951,6 +6117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy1SecondMech
   HoriAttack: {fileID: 443610982}
   VertAttack: {fileID: 1379624160}
+  mechComplete: 0
   attackEndingInterval: 1
 --- !u!4 &1049034548
 Transform:
@@ -6018,6 +6185,7 @@ MonoBehaviour:
   telegraphDuration: 0.4
   attackDuration: 0.7
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1049930032}
   damageZone: {fileID: 1049930031}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -6287,6 +6455,7 @@ MonoBehaviour:
   telegraphDuration: 0.4
   attackDuration: 0.7
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1133447066}
   damageZone: {fileID: 1133447065}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -6506,11 +6675,13 @@ MonoBehaviour:
   firstMemoryAttack: {fileID: 1622912553}
   secondMemoryAttack: {fileID: 2116154673}
   thirdMemoryAttack: {fileID: 440566478}
-  memoryAttackInterval: 5
+  memoryAttackInterval: 12
   telegraphDisplayInterval: 1.5
   attackDisplayInterval: 0.5
   attackComplete: 0
   executeOtherAttack: 0
+  beatCounter: 0
+  beatsToWait: 4
 --- !u!4 &1164447080
 Transform:
   m_ObjectHideFlags: 0
@@ -6673,6 +6844,7 @@ MonoBehaviour:
   telegraphDuration: 1
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1165692231}
   damageZone: {fileID: 1165692230}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -7059,6 +7231,7 @@ MonoBehaviour:
   telegraphDuration: 0.6
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1211862589}
   damageZone: {fileID: 1211862588}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -7354,6 +7527,7 @@ MonoBehaviour:
   telegraphDuration: 0.4
   attackDuration: 0.7
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1224034589}
   damageZone: {fileID: 1224034588}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -7651,7 +7825,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::stateManager
   currentState: 0
-  prepWindowDuration: 2
+  prepWindowBeats: 4
+  beatCounterValue: 0
 --- !u!4 &1267663059
 Transform:
   m_ObjectHideFlags: 0
@@ -7701,6 +7876,7 @@ MonoBehaviour:
   BottomRightAttack: {fileID: 930571891}
   BottomLeftAttack: {fileID: 288964016}
   attackEndingInterval: 1
+  mechComplete: 0
 --- !u!4 &1292935785
 Transform:
   m_ObjectHideFlags: 0
@@ -7790,6 +7966,7 @@ MonoBehaviour:
   telegraphDuration: 1
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1318018705}
   damageZone: {fileID: 1318018704}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -8085,6 +8262,7 @@ MonoBehaviour:
   telegraphDuration: 1
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1379624162}
   damageZone: {fileID: 1379624161}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -8258,6 +8436,7 @@ MonoBehaviour:
   telegraphDuration: 0.4
   attackDuration: 0.7
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1481181958}
   damageZone: {fileID: 1481181957}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -9190,6 +9369,7 @@ MonoBehaviour:
   telegraphDuration: 1
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1696192529}
   damageZone: {fileID: 1696192527}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -9302,6 +9482,7 @@ MonoBehaviour:
   telegraphDuration: 0.6
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1700015576}
   damageZone: {fileID: 1700015575}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -9702,6 +9883,7 @@ MonoBehaviour:
   telegraphDuration: 0.4
   attackDuration: 0.7
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1770508062}
   damageZone: {fileID: 1770508061}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -9860,6 +10042,7 @@ MonoBehaviour:
   telegraphDuration: 0.6
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1795621517}
   damageZone: {fileID: 1795621516}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -10018,6 +10201,7 @@ MonoBehaviour:
   telegraphDuration: 0.4
   attackDuration: 0.7
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1834101809}
   damageZone: {fileID: 1834101808}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -10280,11 +10464,13 @@ MonoBehaviour:
   firstMemoryAttack: {fileID: 528494733}
   secondMemoryAttack: {fileID: 236802903}
   thirdMemoryAttack: {fileID: 1231209189}
-  memoryAttackInterval: 5
+  memoryAttackInterval: 12
   telegraphDisplayInterval: 1.5
   attackDisplayInterval: 0.5
   attackComplete: 0
   executeOtherAttack: 0
+  beatCounter: 0
+  beatsToWait: 4
 --- !u!4 &1876339848
 Transform:
   m_ObjectHideFlags: 0
@@ -10352,6 +10538,7 @@ MonoBehaviour:
   telegraphDuration: 0.6
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 1923140568}
   damageZone: {fileID: 1923140567}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -10881,6 +11068,7 @@ MonoBehaviour:
   telegraphDuration: 0.4
   attackDuration: 0.7
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 2031610935}
   damageZone: {fileID: 2031610934}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -11367,6 +11555,7 @@ MonoBehaviour:
   telegraphDuration: 0.6
   attackDuration: 0.5
   damageAmount: 10
+  beatCounter: 0
   telegraphEffect: {fileID: 2111258407}
   damageZone: {fileID: 2111258406}
   telegraphColour: {r: 1, g: 0, b: 0, a: 0.5}
@@ -11658,3 +11847,4 @@ SceneRoots:
   - {fileID: 1164447080}
   - {fileID: 1876339848}
   - {fileID: 1129578273}
+  - {fileID: 773024493}

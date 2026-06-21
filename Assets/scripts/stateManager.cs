@@ -6,7 +6,8 @@ public class stateManager : MonoBehaviour
     public static stateManager instance;
     public enum CombatState { PlayerTurn, PlayerAttack, PrepWindow, EnemyTurn, Victory, Defeat }
     public CombatState currentState;
-    public float prepWindowDuration = 7f;
+    public int prepWindowBeats = 4;
+    public int beatCounterValue = 0;
 
     void Awake()
     {
@@ -56,13 +57,15 @@ public class stateManager : MonoBehaviour
 
     IEnumerator PrepWindow()
     {
-        float timer = prepWindowDuration;
-        while (timer > 0)
+        audioSyncManager.instance.OnBeat += beatCounter;
+
+        while (beatCounterValue < prepWindowBeats)
         {
-            timer -= Time.deltaTime;
             //add UI element to show timer countdown if want
             yield return null;
         }
+        audioSyncManager.instance.OnBeat -= beatCounter;
+        beatCounterValue = 0;
         EnterEnemyTurn();
     }
 
@@ -74,5 +77,10 @@ public class stateManager : MonoBehaviour
     {
         playerMovement.instance.rb2d.linearVelocity = Vector2.zero; // Stop player movement at the start of their turn
         EnterPlayerTurn();
+    }
+
+    public void beatCounter()
+    {
+        beatCounterValue++;
     }
 }

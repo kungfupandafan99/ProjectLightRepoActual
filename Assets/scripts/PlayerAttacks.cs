@@ -22,6 +22,8 @@ public class PlayerAttacks : MonoBehaviour
 
     public Attack[] attacks;
 
+    public int beatsToWait = 8;
+    public int beatCounterValue = 0;
     [Header("UI")]
     public GameObject attackPromptUI;
     public GameObject damageUI;
@@ -111,8 +113,13 @@ public class PlayerAttacks : MonoBehaviour
 
     IEnumerator FinishSequence()
     {
-
-        yield return new WaitForSeconds(2f);
+        audioSyncManager.instance.OnBeat += BeatCounterValue;
+        while(beatCounterValue < beatsToWait)
+        {
+            yield return null;
+        }
+        audioSyncManager.instance.OnBeat -= BeatCounterValue;
+        beatCounterValue = 0;
         Debug.Log("Sequence Complete");
         damageUI.SetActive(false);
         damageText.text = "";
@@ -139,5 +146,10 @@ public class PlayerAttacks : MonoBehaviour
             sequence[i] = inputs[Random.Range(0, inputs.Length)];
         }
         return sequence;
+    }
+
+    void BeatCounterValue()
+    {
+        beatCounterValue++;
     }
 }

@@ -14,7 +14,8 @@ public class phase1ManagerEnemy1 : MonoBehaviour
     public float mechCompletion = 1f; // Time that dictates when next mech runs.
     private int currentMech = 0; // 0 for first, 1 for second, 2 for third
     private bool isTeaching = true; // determines when to start layering attacks and adding complexity
-
+    public int beatCounter = 0; // Counter to keep track of beats for timing attacks
+    private int beatsBetweenMechs = 8;
     public float memoryTime = 5f; // Time to remember the attack pattern for the player
     public int phase2AttackCount = 0; // Counter for the number of attacks in phase 2
     public int phase3AttackCount = 0;
@@ -34,7 +35,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
 
     IEnumerator DecideAttack()
     {
-        yield return new WaitForSeconds(timeBetweenMechs);
+        
         if (EnemyLogic.Instance.isInPhase2 == false)
         {
             if (isTeaching)
@@ -89,7 +90,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             }
             else if (phase3AttackCount % 3 == 1)
             {
-                
+
 
                 yield return StartCoroutine(LayeredMemoryAttacks());
             }
@@ -115,22 +116,25 @@ public class phase1ManagerEnemy1 : MonoBehaviour
         if (currentMech == 0)
         {
             firstMech.StartAttackSequence();
+            yield return new WaitUntil(() => firstMech.mechComplete);
             yield return new WaitForSeconds((firstMech.leftAttack.telegraphDuration + firstMech.leftAttack.attackDuration + timeBetweenMechs) * 2);
 
         }
         else if (currentMech == 1)
         {
             secondMech.StartAttackSequence();
+            yield return new WaitUntil(() => secondMech.mechComplete);
             yield return new WaitForSeconds(secondMech.HoriAttack.telegraphDuration + secondMech.HoriAttack.attackDuration + timeBetweenMechs);
         }
         else if (currentMech == 2)
         {
             thirdMech.StartAttackSequence();
+            yield return new WaitUntil(() => thirdMech.mechComplete);
             yield return new WaitForSeconds(thirdMech.TopRightAttack.telegraphDuration + thirdMech.TopRightAttack.attackDuration + timeBetweenMechs);
             isTeaching = false; // After the third mech, start layering attacks
         }
         currentMech++;
-        
+
 
     }
 
@@ -147,27 +151,43 @@ public class phase1ManagerEnemy1 : MonoBehaviour
 
         foreach (int value in order)
         {
-            
+            // Subscribe to the beat event to start counting beats for timing the next attack
+            audioSyncManager.instance.OnBeat += beatCount;
             if (value == 0)
             {
                 firstMech.StartAttackSequence();
-                yield return new WaitForSeconds((firstMech.leftAttack.telegraphDuration + firstMech.leftAttack.attackDuration) * 2 - mechCompletion);
+                // yield return new WaitForSeconds((firstMech.leftAttack.telegraphDuration + firstMech.leftAttack.attackDuration) * 2 - mechCompletion);
+                // Ideally won't need these WaitForSeconds statements because of the beat counter. Delete them
+
             }
             else if (value == 1)
             {
                 secondMech.StartAttackSequence();
-                yield return new WaitForSeconds(secondMech.HoriAttack.telegraphDuration + secondMech.HoriAttack.attackDuration - mechCompletion);
+                // yield return new WaitForSeconds(secondMech.HoriAttack.telegraphDuration + secondMech.HoriAttack.attackDuration - mechCompletion);
             }
             else if (value == 2)
             {
                 thirdMech.StartAttackSequence();
-                yield return new WaitForSeconds(thirdMech.TopRightAttack.telegraphDuration + thirdMech.TopRightAttack.attackDuration - mechCompletion);
+                // yield return new WaitForSeconds(thirdMech.TopRightAttack.telegraphDuration + thirdMech.TopRightAttack.attackDuration - mechCompletion);
             }
-            yield return new WaitForSeconds(timeBetweenMechs);
+            // yield return new WaitForSeconds(timeBetweenMechs);
+            while (beatCounter < beatsBetweenMechs)
+            {
+                yield return null; // Wait until the next frame and check again
+            }
+            // Instead of yield return compare beat counter to waitingBeats for layeredAttacks
+            // KEEP SUBSCRIBED TO BEAT EVENT WE NEED TO CONTINUE COUNTING BEATS TO SYNC THE LAYERED ATTACKS
+            // Reset Beat counter here for checks to work
+            beatCounter = 0;
+            audioSyncManager.instance.OnBeat -= beatCount;
+            // Unsubscribe and resubscribe to reset the beat counter for the next attack timing (This is testing purposes in case staying subscribed causes sync issues)
+
         }
-        yield return new WaitForSeconds(timeBetweenMechs);
-        
-       
+        yield return new WaitUntil(() => firstMech.mechComplete && secondMech.mechComplete && thirdMech.mechComplete);
+        yield return new WaitForSeconds(timeBetweenMechs + 2f);
+
+
+
 
     }
 
@@ -178,7 +198,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             memoryAttackManager1.StartMemoryAttackSequence();
             yield return new WaitUntil(() => memoryAttackManager1.attackComplete);
             yield return new WaitForSeconds(timeBetweenMechs);
-            
+
             memoryAttackCount++;
         }
         else if (memoryAttackCount == 1)
@@ -186,7 +206,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             memoryAttackManager2.StartMemoryAttackSequence();
             yield return new WaitUntil(() => memoryAttackManager2.attackComplete);
             yield return new WaitForSeconds(timeBetweenMechs);
-            
+
             memoryAttackCount++;
         }
         else if (memoryAttackCount == 2)
@@ -194,7 +214,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             memoryAttackManager3.StartMemoryAttackSequence();
             yield return new WaitUntil(() => memoryAttackManager3.attackComplete);
             yield return new WaitForSeconds(timeBetweenMechs);
-            
+
             memoryAttackCount = 0;
         }
 
@@ -267,7 +287,12 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             yield return new WaitForSeconds((attack.telegraphDuration + attack.attackDuration) * 0.8f);
         }
         yield return new WaitForSeconds(timeBetweenMechs);
-        
+
     }
 
+
+    void beatCount()
+    {
+        beatCounter++;
+    }
 }

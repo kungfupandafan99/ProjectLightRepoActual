@@ -8,9 +8,11 @@ public class Enemy1FirstMech : MonoBehaviour
     public EnemyBasicAttack rightAttack;
     public float attackInterval = 2f; // Time between attacks
     public bool sidesFirstMech = false;
+    public bool mechComplete = false;
 
     public void StartAttackSequence()
     {
+        mechComplete = false;
         StartCoroutine(AttackSequence());
     }
 
@@ -18,7 +20,7 @@ public class Enemy1FirstMech : MonoBehaviour
     {
         if (!sidesFirstMech)
         {
-            sidesFirstMech=true;
+            sidesFirstMech=false;
             centreAttack.StartBasicAttack();
 
             yield return new WaitForSeconds(leftAttack.telegraphDuration + leftAttack.attackDuration + attackInterval);
@@ -28,7 +30,7 @@ public class Enemy1FirstMech : MonoBehaviour
             rightAttack.StartBasicAttack();
 
             yield return new WaitForSeconds(leftAttack.telegraphDuration + leftAttack.attackDuration);
-
+            mechComplete = true;
             
         }
         else
@@ -39,7 +41,7 @@ public class Enemy1FirstMech : MonoBehaviour
             yield return new WaitForSeconds(leftAttack.telegraphDuration + leftAttack.attackDuration + attackInterval);
             centreAttack.StartBasicAttack();
             yield return new WaitForSeconds(centreAttack.telegraphDuration + centreAttack.attackDuration);
-            
+            mechComplete = true;
         }
 
     }

@@ -9,8 +9,10 @@ public class Enemy1ThirdMech : MonoBehaviour
     public EnemyBasicAttack BottomRightAttack;
     public EnemyBasicAttack BottomLeftAttack;
     public float attackEndingInterval = 1f; // Time after attacks end before player turn starts
+    public bool mechComplete = false;
     public void StartAttackSequence()
     {
+        mechComplete = false;
         StartCoroutine(AttackSequence());
     }
 
@@ -21,6 +23,7 @@ public class Enemy1ThirdMech : MonoBehaviour
         BottomRightAttack.StartBasicAttack();
         BottomLeftAttack.StartBasicAttack();
         yield return new WaitForSeconds(TopRightAttack.telegraphDuration + TopRightAttack.attackDuration + attackEndingInterval);
+        mechComplete = true;
         
     }
 }
