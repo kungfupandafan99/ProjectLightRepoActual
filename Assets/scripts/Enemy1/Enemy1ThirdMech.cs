@@ -10,6 +10,8 @@ public class Enemy1ThirdMech : MonoBehaviour
     public EnemyBasicAttack BottomLeftAttack;
     public float attackEndingInterval = 1f; // Time after attacks end before player turn starts
     public bool mechComplete = false;
+    public bool isInPhase3 = false;
+    public int phase3BeatsToWait = 4;
     public void StartAttackSequence()
     {
         mechComplete = false;
@@ -18,6 +20,13 @@ public class Enemy1ThirdMech : MonoBehaviour
 
     IEnumerator AttackSequence()
     {
+        if (isInPhase3)
+        {
+            TopRightAttack.setBeatsToWait(phase3BeatsToWait);
+            TopLeftAttack.setBeatsToWait(phase3BeatsToWait);
+            BottomRightAttack.setBeatsToWait(phase3BeatsToWait);
+            BottomLeftAttack.setBeatsToWait(phase3BeatsToWait);
+        }
         TopRightAttack.StartBasicAttack();
         TopLeftAttack.StartBasicAttack();
         BottomRightAttack.StartBasicAttack();

@@ -15,7 +15,8 @@ public class phase1ManagerEnemy1 : MonoBehaviour
     private int currentMech = 0; // 0 for first, 1 for second, 2 for third
     private bool isTeaching = true; // determines when to start layering attacks and adding complexity
     public int beatCounter = 0; // Counter to keep track of beats for timing attacks
-    private int beatsBetweenMechs = 8;
+    public int memoryBeatCounter = 0; // Counter to keep track of beats for timing memory attacks
+    private int beatsBetweenMechs = 9;
     public float memoryTime = 5f; // Time to remember the attack pattern for the player
     public int phase2AttackCount = 0; // Counter for the number of attacks in phase 2
     public int phase3AttackCount = 0;
@@ -24,6 +25,10 @@ public class phase1ManagerEnemy1 : MonoBehaviour
     public enemy1MemoryAttackManager[] memoryAttackManagers; // Array to hold the memory attack managers for phase 2
     public EnemyBasicAttack[] finalAttacks; // Array to hold all basic attacks for potential use in phase 3
     private bool memoryAttacking = false;
+    private bool turnComplete = false;
+    private bool memoryAttackLayering = false; // Flag to indicate if a memory attack is currently in progress
+    public int beatsToWaitFinal = 2;
+
     private void Awake()
     {
         instance = this;
@@ -68,9 +73,12 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             {
                 if (phase2AttackCount >= 6)
                 {
+                    memoryAttackLayering = true;
                     isLayeringAttacks = true;
                     StartCoroutine(MemoryAttack());
+                    
                     yield return StartCoroutine(LayerAttacks());
+                    yield return new WaitUntil(() => turnComplete == true); // Wait until the layered memory attacks are done before proceeding
                 }
                 else
                 {
@@ -83,6 +91,7 @@ public class phase1ManagerEnemy1 : MonoBehaviour
         }
         else if (EnemyLogic.Instance.isInPhase3 == true)
         {
+            Debug.Log("Phase 3 attack count: " + phase3AttackCount);
             if (phase3AttackCount % 3 == 0)
             {
 
@@ -97,11 +106,13 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             else
             {
                 isLayeringAttacks = true;
-
-                StartCoroutine(LayerAttacks());
+                
+                
                 StartCoroutine(LayeredMemoryAttacks());
-                yield return new WaitForSeconds(3f); // Wait a bit to allow the attacks to start before layering them
-                yield return StartCoroutine(LayerAttacks());
+                yield return new WaitUntil(() => memoryAttacking == false); // Wait until the layered memory attacks are done before proceeding
+                StartCoroutine(LayerAttacks());
+                yield return new WaitUntil(() => isLayeringAttacks == false); // Wait until the layered attacks are done before proceeding
+                
                 yield return new WaitUntil(() => memoryAttacking == false); // Wait until the layered memory attacks are done before proceeding
                 isLayeringAttacks = false; // Reset the flag after the layered attacks are done
             }
@@ -148,29 +159,53 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             order[i] = order[j];
             order[j] = temp;
         }
-
+        Debug.Log("Are you being ran?");
+        isLayeringAttacks = true;
+        
+        if (memoryAttackLayering == true)
+        {
+            audioSyncManager.instance.OnBeat += beatCount;
+            while (beatCounter < 12)
+            {
+                yield return null;
+            }
+            audioSyncManager.instance.OnBeat -= beatCount;
+            beatCounter = 0;
+            memoryAttackLayering = false;
+        }
+        Debug.Log("Starting layered attacks in order: " + string.Join(", ", order));
         foreach (int value in order)
         {
-            // Subscribe to the beat event to start counting beats for timing the next attack
+            
             audioSyncManager.instance.OnBeat += beatCount;
+            
+            
+            if (EnemyLogic.Instance.isInPhase3)
+            {
+                firstMech.isInPhase3 = true;
+                secondMech.isInPhase3 = true;
+                thirdMech.isInPhase3 = true;
+                beatsBetweenMechs = 4; // Reduce the number of beats between mechs in phase 3
+                
+            }
+            // Subscribe to the beat event to start counting beats for timing the next attack
+            
             if (value == 0)
             {
                 firstMech.StartAttackSequence();
-                // yield return new WaitForSeconds((firstMech.leftAttack.telegraphDuration + firstMech.leftAttack.attackDuration) * 2 - mechCompletion);
-                // Ideally won't need these WaitForSeconds statements because of the beat counter. Delete them
 
             }
-            else if (value == 1)
+            else if (value == 1) 
             {
                 secondMech.StartAttackSequence();
-                // yield return new WaitForSeconds(secondMech.HoriAttack.telegraphDuration + secondMech.HoriAttack.attackDuration - mechCompletion);
+
             }
             else if (value == 2)
             {
                 thirdMech.StartAttackSequence();
-                // yield return new WaitForSeconds(thirdMech.TopRightAttack.telegraphDuration + thirdMech.TopRightAttack.attackDuration - mechCompletion);
+
             }
-            // yield return new WaitForSeconds(timeBetweenMechs);
+
             while (beatCounter < beatsBetweenMechs)
             {
                 yield return null; // Wait until the next frame and check again
@@ -179,11 +214,15 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             // KEEP SUBSCRIBED TO BEAT EVENT WE NEED TO CONTINUE COUNTING BEATS TO SYNC THE LAYERED ATTACKS
             // Reset Beat counter here for checks to work
             beatCounter = 0;
+            
             audioSyncManager.instance.OnBeat -= beatCount;
+            
+            
             // Unsubscribe and resubscribe to reset the beat counter for the next attack timing (This is testing purposes in case staying subscribed causes sync issues)
 
         }
         yield return new WaitUntil(() => firstMech.mechComplete && secondMech.mechComplete && thirdMech.mechComplete);
+        isLayeringAttacks = false; // Reset the flag after the layered attacks are done
         yield return new WaitForSeconds(timeBetweenMechs + 2f);
 
 
@@ -193,8 +232,14 @@ public class phase1ManagerEnemy1 : MonoBehaviour
 
     IEnumerator MemoryAttack()
     {
+        turnComplete = false;
         if (memoryAttackCount == 0)
         {
+            memoryAttackManager1.StartMemoryTelegraphing();
+          
+            yield return new WaitUntil(() => memoryAttackManager1.telegraphingComplete);
+            
+            yield return new WaitUntil(() => isLayeringAttacks == false);
             memoryAttackManager1.StartMemoryAttackSequence();
             yield return new WaitUntil(() => memoryAttackManager1.attackComplete);
             yield return new WaitForSeconds(timeBetweenMechs);
@@ -203,26 +248,43 @@ public class phase1ManagerEnemy1 : MonoBehaviour
         }
         else if (memoryAttackCount == 1)
         {
+            memoryAttackManager2.StartMemoryTelegraphing();
+            
+            yield return new WaitUntil(() => memoryAttackManager2.telegraphingComplete);
+            
+            yield return new WaitUntil(() => isLayeringAttacks == false);
             memoryAttackManager2.StartMemoryAttackSequence();
             yield return new WaitUntil(() => memoryAttackManager2.attackComplete);
+
             yield return new WaitForSeconds(timeBetweenMechs);
 
             memoryAttackCount++;
         }
         else if (memoryAttackCount == 2)
         {
+            memoryAttackManager3.StartMemoryTelegraphing();
+            
+            yield return new WaitUntil(() => memoryAttackManager3.telegraphingComplete);
+            
+            yield return new WaitUntil(() => isLayeringAttacks == false);
             memoryAttackManager3.StartMemoryAttackSequence();
             yield return new WaitUntil(() => memoryAttackManager3.attackComplete);
             yield return new WaitForSeconds(timeBetweenMechs);
 
             memoryAttackCount = 0;
         }
+        turnComplete = true;
 
 
     }
 
+
+    // For phase 3 we need a separate beat counter so that it doesn't interfere with the layered attacks.
+    // This is because the layered attacks are still running on the same beat counter as the memory attacks,
+    // and we need to keep track of the beats for the memory attacks separately.
     IEnumerator LayeredMemoryAttacks()
     {
+        memoryBeatCounter = 0;
         memoryAttacking = true;
         if ((EnemyLogic.Instance.isInPhase2 == true && EnemyLogic.Instance.isInPhase3 == false) || (isLayeringAttacks == true && EnemyLogic.Instance.isInPhase3 == true))
         {
@@ -234,20 +296,35 @@ public class phase1ManagerEnemy1 : MonoBehaviour
             } while (j == i);
 
             Debug.Log($"Starting layered memory attacks with managers {i} and {j}");
-            memoryAttackManagers[j].memoryAttackInterval -= 1f;
-            memoryAttackManagers[i].memoryAttackInterval += 1f;
-            memoryAttackManagers[i].StartMemoryAttackSequence();
+            memoryAttackManagers[i].StartMemoryTelegraphing();
             yield return new WaitUntil(() => memoryAttackManagers[i].executeOtherAttack);
             yield return new WaitForSeconds(1f);
             //Reduce memoryAttackInterval i by how much u wait here so that the transition to the next attack is smoother 
 
 
             Debug.Log("First memory attack sequence has reached the point to execute the other attack, starting second memory attack sequence...");
+            memoryAttackManagers[j].StartMemoryTelegraphing();
+            yield return new WaitUntil(() => memoryAttackManagers[j].executeOtherAttack);
+            memoryAttacking = false;
+            if (EnemyLogic.Instance.isInPhase3 == true)
+            {
+                audioSyncManager.instance.OnBeat += memoryBeatCount;
+                while (memoryBeatCounter < 4)
+                {
+                    yield return null;
+                }
+                audioSyncManager.instance.OnBeat -= memoryBeatCount;
+                memoryBeatCounter = 0;
+            }
+            memoryAttackManagers[i].StartMemoryAttackSequence();
+            audioSyncManager.instance.OnBeat += memoryBeatCount;
+            while (memoryBeatCounter < 12)
+            {
+                yield return null;
+            }
             memoryAttackManagers[j].StartMemoryAttackSequence();
             yield return new WaitUntil(() => memoryAttackManagers[j].attackComplete);
             yield return new WaitForSeconds(timeBetweenMechs);
-            memoryAttackManagers[j].memoryAttackInterval += 1f;
-            memoryAttackManagers[i].memoryAttackInterval -= 1f;
         }
         else if (EnemyLogic.Instance.isInPhase3 == true && isLayeringAttacks == false)
 
@@ -261,31 +338,52 @@ public class phase1ManagerEnemy1 : MonoBehaviour
                 j = Random.Range(0, memoryAttackManagers.Length);
             } while (j == i || j == k || k == i);
 
-            memoryAttackManagers[j].memoryAttackInterval += 2.2f;
-            memoryAttackManagers[i].memoryAttackInterval += 4.1f;
-            memoryAttackManagers[i].StartMemoryAttackSequence();
+            memoryAttackManagers[i].StartMemoryTelegraphing();
             yield return new WaitUntil(() => memoryAttackManagers[i].executeOtherAttack);
             yield return new WaitForSeconds(1f);
-            memoryAttackManagers[j].StartMemoryAttackSequence();
+            memoryAttackManagers[j].StartMemoryTelegraphing();
             yield return new WaitUntil(() => memoryAttackManagers[j].executeOtherAttack);
             yield return new WaitForSeconds(1f);
+            memoryAttackManagers[k].StartMemoryTelegraphing();
+            yield return new WaitUntil(() => memoryAttackManagers[k].executeOtherAttack);
+            
+            memoryAttackManagers[i].StartMemoryAttackSequence();
+            audioSyncManager.instance.OnBeat += beatCount;
+            while (beatCounter < 12)
+            {
+                yield return null;
+            }
+            beatCounter = 0;
+            memoryAttackManagers[j].StartMemoryAttackSequence();
+            while (beatCounter < 12)
+            {
+                yield return null;
+            }
             memoryAttackManagers[k].StartMemoryAttackSequence();
             yield return new WaitUntil(() => memoryAttackManagers[k].attackComplete);
             yield return new WaitForSeconds(timeBetweenMechs);
 
-            memoryAttackManagers[j].memoryAttackInterval -= 2.2f;
-            memoryAttackManagers[i].memoryAttackInterval -= 4.1f;
         }
         memoryAttacking = false;
     }
 
     IEnumerator FinalAttackSequence()
     {
+        beatCounter = 0;
+        audioSyncManager.instance.OnBeat += beatCount;
         foreach (EnemyBasicAttack attack in finalAttacks)
         {
+
+            attack.setBeatsToWait(beatsToWaitFinal);
             attack.StartBasicAttack();
-            yield return new WaitForSeconds((attack.telegraphDuration + attack.attackDuration) * 0.8f);
+            while (beatCounter < 2)
+            {
+                yield return null;
+            }
+            beatCounter = 0;
         }
+        audioSyncManager.instance.OnBeat -= beatCount;
+        beatCounter = 0;
         yield return new WaitForSeconds(timeBetweenMechs);
 
     }
@@ -294,5 +392,10 @@ public class phase1ManagerEnemy1 : MonoBehaviour
     void beatCount()
     {
         beatCounter++;
+    }
+
+    void memoryBeatCount()
+    {
+        memoryBeatCounter++;
     }
 }

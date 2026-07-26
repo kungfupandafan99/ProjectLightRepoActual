@@ -7,13 +7,14 @@ public class enemy1MemoryAttackManager : MonoBehaviour
     public EnemyMemoryAttack firstMemoryAttack;
     public EnemyMemoryAttack secondMemoryAttack;
     public EnemyMemoryAttack thirdMemoryAttack;
-    public float memoryAttackInterval = 12f; // Beats to wait for player to memorise the attack before it is displayed
+    public float memoryAttackInterval = 13f; // Beats to wait for player to memorise the attack before it is displayed
     public float telegraphDisplayInterval = 1.5f; // Time between telegraph displays
     public float attackDisplayInterval = 0.5f;
     public bool attackComplete = false; // Flag to indicate when the attack sequence is complete
     public bool executeOtherAttack = false;
+    public bool telegraphingComplete = false;
     public int beatCounter = 0;
-    public int beatsToWait = 4;
+    public int beatsToWait = 5;
     
 
 
@@ -24,13 +25,16 @@ public class enemy1MemoryAttackManager : MonoBehaviour
         StartCoroutine(MemoryAttackSequence());
     }
 
-    IEnumerator MemoryAttackSequence()
+    public void StartMemoryTelegraphing()
+    {
+        telegraphingComplete = false;
+        executeOtherAttack = false;
+    
+        StartCoroutine(MemoryTelegraphing());
+    }
+    IEnumerator MemoryTelegraphing()
     {
         audioSyncManager.instance.OnBeat += beatIncrementor;
-        while (beatCounter < beatsToWait)
-        {
-            yield return null;
-        }
         beatCounter = 0;
         firstMemoryAttack.displayTelegraph();
         while (beatCounter < beatsToWait)
@@ -38,27 +42,24 @@ public class enemy1MemoryAttackManager : MonoBehaviour
             yield return null;
         }
         beatCounter = 0;
-        
+
         secondMemoryAttack.displayTelegraph();
         while (beatCounter < beatsToWait)
         {
             yield return null;
         }
+        audioSyncManager.instance.OnBeat -= beatIncrementor;
         beatCounter = 0;
         thirdMemoryAttack.displayTelegraph();
+        telegraphingComplete = true;
         executeOtherAttack = true;
-        while (beatCounter < beatsToWait)
-        {
-            yield return null;
-        }
         
-        beatCounter = 0;
+    }
+
+    IEnumerator MemoryAttackSequence()
+    {
+        audioSyncManager.instance.OnBeat += beatIncrementor;
         while (beatCounter < memoryAttackInterval)
-        {
-            yield return null;
-        }
-        
-        while (beatCounter < beatsToWait)
         {
             yield return null;
         }
@@ -97,6 +98,7 @@ public class enemy1MemoryAttackManager : MonoBehaviour
 
     void beatIncrementor()
     {
+        
         beatCounter++;
     }
 

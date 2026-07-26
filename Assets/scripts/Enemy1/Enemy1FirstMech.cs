@@ -9,6 +9,8 @@ public class Enemy1FirstMech : MonoBehaviour
     public float attackInterval = 2f; // Time between attacks
     public bool sidesFirstMech = false;
     public bool mechComplete = false;
+    public bool isInPhase3 = false;
+    public int phase3BeatsToWait = 4;
 
     public void StartAttackSequence()
     {
@@ -18,6 +20,12 @@ public class Enemy1FirstMech : MonoBehaviour
 
     IEnumerator AttackSequence()
     {
+        if (isInPhase3)
+        {
+            centreAttack.setBeatsToWait(phase3BeatsToWait);
+            leftAttack.setBeatsToWait(phase3BeatsToWait);
+            rightAttack.setBeatsToWait(phase3BeatsToWait);
+        }
         if (!sidesFirstMech)
         {
             sidesFirstMech=false;

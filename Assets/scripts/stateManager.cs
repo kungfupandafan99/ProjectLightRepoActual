@@ -8,6 +8,8 @@ public class stateManager : MonoBehaviour
     public CombatState currentState;
     public int prepWindowBeats = 4;
     public int beatCounterValue = 0;
+    public bool onEnemy2 = false;
+    public bool onEnemy3 = false;
 
     void Awake()
     {
@@ -42,7 +44,18 @@ public class stateManager : MonoBehaviour
         currentState = CombatState.EnemyTurn;
         Debug.Log("Enemy's turn");
         TurnBasedUI.Instance.hideTBCUI();
-        phase1ManagerEnemy1.instance.RunNextAttack();
+        if (onEnemy3 == true)
+        {
+            // for when enemy 3 is implemented
+        }
+        else if (onEnemy2 == true)
+        {
+            PhaseManagerEnemy2.instance.RunNextAttack();
+        }
+        else
+        { 
+            phase1ManagerEnemy1.instance.RunNextAttack(); 
+        }
     }
 
     public void EnterPrepWindow()
