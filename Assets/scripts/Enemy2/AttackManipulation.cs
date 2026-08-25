@@ -85,7 +85,7 @@ public class AttackManipulation : MonoBehaviour
                 float pulse = Mathf.Sin(phase * Mathf.PI * 2);
                 float positionValue = pulse * positionAmplitude;
                 Vector3 offset = (positionDirection ? positionAxisHori : positionAxisVert) * positionValue;
-                transform.position = positionCentre + offset;
+                transform.localPosition = positionCentre + offset;
             }
             yield return null;
         }
